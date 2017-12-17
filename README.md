@@ -36,8 +36,8 @@ Tested only in X86_64 arch.
 
 ## Requirements
 
-- Puppet >= 5.0.0
-- Hiera >= 3.4 (v5 format)
+- Puppet >= 5.3.3
+- Hiera >= 3.4.2 (v5 format)
 
 ## Installation
 
@@ -287,13 +287,13 @@ oses/distro/Debian/8.yaml
 
 This module was developed using
 
-- Puppet 5.3
-  - Hiera 3.4 (v5 format)
-  - Facter 3.9
-- CentOS 7
-- Vagrant 2.0
+- Puppet 5.3.3
+  - Hiera 3.4.2 (v5 format)
+  - Facter 2.5.1
+- CentOS 7.3
+- Vagrant 2.0.1 + VirtualBox 5.2.2
   - box: gutocarvalho/centos7x64puppet5
-
+  
 ### Testing
 
 This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, beaker and travis-ci. We hope you use them before submitting your PR.
@@ -315,7 +315,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 14.04/16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/2 to test this class under Centos 6/7.
 
     bash ./acceptance.sh
 
@@ -331,8 +331,6 @@ Our matrix values
 
     centos-6-x64
     centos-7-x64
-    debian-8-x64
-    ubuntu-1604-x64
 
 This matrix needs vagrant (>=1.9) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
 
