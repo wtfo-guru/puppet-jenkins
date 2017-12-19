@@ -1,7 +1,9 @@
 class jenkins::install {
 
-  class { 'java':
-    distribution => 'jre',
+  java::oracle { 'jdk8' :
+    ensure  => 'present',
+    version => '8',
+    java_se => 'jdk',
   }
 
   yumrepo { 'jenkins':
