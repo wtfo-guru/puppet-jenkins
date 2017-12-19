@@ -1,3 +1,5 @@
+# Internal class
+
 class jenkins::service {
 
   service { 'jenkins':

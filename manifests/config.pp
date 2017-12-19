@@ -1,3 +1,5 @@
+# Internal class 
+
 class jenkins::config {
 
   augeas {'jenkins_homedir':

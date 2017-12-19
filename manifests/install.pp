@@ -1,3 +1,5 @@
+# Internal class
+
 class jenkins::install {
 
   java::oracle { 'jdk8' :
