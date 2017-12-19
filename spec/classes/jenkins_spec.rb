@@ -15,8 +15,8 @@ describe 'jenkins', :type => :class do
     it { is_expected.to contain_class('jenkins::service') }
 
     context 'jenkins::install defaults' do
-      it { is_expected.to contain_package('jenkins') }
       it { is_expected.to contain_yumrepo('jenkins') }
+      it { is_expected.to contain_package('jenkins') }
     end
 
     context 'jenkins::config defaults' do
