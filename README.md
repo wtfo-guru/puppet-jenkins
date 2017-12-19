@@ -36,8 +36,8 @@ Tested only in X86_64 arch.
 
 ## Requirements
 
-- Puppet >= 5.3.3
-- Hiera >= 3.4.2 (v5 format)
+- Puppet >= 4.10
+- Hiera >= 3.4 (v5 format)
 
 ## Installation
 
@@ -52,7 +52,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-jenkins', '1.0.0'
+    mod 'gutocarvalho-jenkins', '1.0.1'
 
 ## Usage
 
@@ -293,7 +293,7 @@ This module was developed using
 - CentOS 7.3
 - Vagrant 2.0.1 + VirtualBox 5.2.2
   - box: gutocarvalho/centos7x64puppet5
-  
+
 ### Testing
 
 This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, beaker and travis-ci. We hope you use them before submitting your PR.
