@@ -1,6 +1,6 @@
 {
   "name": "gutocarvalho-jenkins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "gutocarvalho",
   "summary": "This module will install the latest jenkins v2",
   "license": "Apache-2.0",
@@ -10,24 +10,28 @@
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",
+      "architecture": "x86_64",
       "operatingsystemrelease": [
         "6", "7"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
+      "architecture": "x86_64",
       "operatingsystemrelease": [
         "6", "7"
       ]
     },
     {
       "operatingsystem": "RedHat",
+      "architecture": "x86_64",
       "operatingsystemrelease": [
         "6", "7"
       ]
     },
     {
       "operatingsystem": "Scientific",
+      "architecture": "x86_64",
       "operatingsystemrelease": [
         "6", "7"
       ]
@@ -36,21 +40,21 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 6.0.0"
+      "version_requirement": ">= 4.7.0 < 6.0.0"
     }
   ],
   "dependencies": [
     {
-      "name":"puppetlabs/stdlib"
+      "name":"puppetlabs/stdlib",
+      "version_requirement": ">=4.24.0 < 5.0.0"
     },
     {
-      "name":"puppetlabs/java"
+      "name":"puppetlabs/java",
+      "version_requirement": ">=2.3.0 < 3.0.0"
     },
     {
-      "name":"puppet/archive"
+      "name":"puppet/archive",
+      "version_requirement": ">=2.2.0 < 3.0.0"
     }
-  ],
-  "pdk-version": "1.2.1",
-  "template-url": "https://github.com/puppetlabs/pdk-module-template",
-  "template-ref": "heads/master-0-g00b18a7"
+  ]
 }
