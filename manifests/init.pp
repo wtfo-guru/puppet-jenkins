@@ -36,21 +36,14 @@ class jenkins(
   String $http_listen_address,
   String $https_listen_address,
   Enum['yes','no'] $enable_access_log,
-  Boolean $enable_https    = false,
-  $https_keystore          = undef,
-  $https_keystore_password = undef,
-  $args                    = undef,
-  $java_cmd                = undef,
+  Boolean $enable_https                          = false,
+  Stdlib::Absolutepath $service_config_directory = '/etc/sysconfig',
+  $https_keystore                                = undef,
+  $https_keystore_password                       = undef,
+  $args                                          = undef,
+  $java_cmd                                      = undef,
+  Optional[String] $java_package                 = undef,
   ) {
-
-    case $facts['os']['family'] {
-      'Debian': {
-        $augeas_context = '/files/etc/defaults/jenkins'
-      }
-      default: {
-        $augeas_context =  '/files/etc/sysconfig/jenkins'
-      }
-    }
 
     include jenkins::install
     include jenkins::config

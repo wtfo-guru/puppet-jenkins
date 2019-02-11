@@ -2,7 +2,7 @@ class jenkins::install {
 
   class { 'java':
     distribution => 'jre',
-    version => '8u201',
+    version => $jenkins::java_package,
   }
 
   case $facts['os']['family'] {
