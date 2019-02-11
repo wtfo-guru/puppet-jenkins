@@ -43,6 +43,15 @@ class jenkins(
   $java_cmd                = undef,
   ) {
 
+    case $facts['os']['family'] {
+      'Debian': {
+        $augeas_context = '/files/etc/defaults/jenkins'
+      }
+      default: {
+        $augeas_context =  '/files/etc/sysconfig/jenkins'
+      }
+    }
+
     include jenkins::install
     include jenkins::config
     include jenkins::service
