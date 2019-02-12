@@ -1,8 +1,8 @@
 class jenkins::install {
 
   class { 'java':
-    distribution => 'jre',
-    version => $jenkins::java_package,
+    # distribution => 'jre',
+    package      => $jenkins::java_package,
   }
 
   case $facts['os']['family'] {
@@ -21,6 +21,7 @@ class jenkins::install {
           'deb' => true,
         },
       }
+      $_repo = Apt::Source['jenkins-stable']
     }
     default: {
       yumrepo { 'jenkins':
@@ -30,11 +31,13 @@ class jenkins::install {
         gpgkey   => 'https://pkg.jenkins.io/redhat/jenkins.io.key',
         gpgcheck => '1',
       }
+      $_repo = Yumrepo['jenkins']
     }
   }
 
   package { 'jenkins':
-    ensure => installed,
+    ensure  => installed,
+    require => [Class['java'],$_repo],
   }
 
 }
