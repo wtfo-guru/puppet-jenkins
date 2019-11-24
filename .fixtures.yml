@@ -6,3 +6,4 @@ fixtures:
      java: "puppetlabs/java"
      stdlib: "puppetlabs/stdlib"
      archive: "puppet/archive"
+     apt: "puppetlabs/apt"

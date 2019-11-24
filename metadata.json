@@ -34,11 +34,11 @@
     },
     {
       "operatingsystem": "Debian",
-      "operatingsystemrelease": [ "9" ]
+      "operatingsystemrelease": [ "9", "10" ]
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "18" ]
+      "operatingsystemrelease": [ "18.04" ]
     }
   ],
   "requirements": [
