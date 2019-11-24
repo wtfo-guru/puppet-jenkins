@@ -6,6 +6,12 @@ describe 'jenkins', :type => :class do
           facts
         end
 
+    case facts[:osfamily]
+    when 'Debian'
+      augeas_context = '/files/etc/default/jenkins'
+    else
+      augeas_context = '/files/etc/sysconfig/jenkins'
+    end
     it { is_expected.to compile }
     it { is_expected.to compile.with_all_deps }
 
@@ -16,44 +22,49 @@ describe 'jenkins', :type => :class do
 
     context 'jenkins::install defaults' do
       it { is_expected.to contain_package('jenkins') }
-      it { is_expected.to contain_yumrepo('jenkins') }
+      case facts[:osfamily]
+      when 'Debian'
+        it { is_expected.to contain_apt__source('jenkins-stable') }
+      else
+        it { is_expected.to contain_yumrepo('jenkins') }
+      end
     end
 
     context 'jenkins::config defaults' do
       it { is_expected.to contain_augeas('jenkins_homedir').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_user').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
         })
       }
       it { is_expected.to contain_augeas('jenkins_java_args').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_http_listen_address').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_http_port').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_debug_level').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_enable_access_log').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_handler_max').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
       it { is_expected.to contain_augeas('jenkins_handler_idle').with({
-        'context' => '/files/etc/sysconfig/jenkins',
+        'context' => "#{augeas_context}",
          })
       }
     end
@@ -71,16 +82,16 @@ describe 'jenkins', :type => :class do
       let(:params) { {'enable_https' => true} }
 
       it { is_expected.to contain_augeas('jenkins_https_port').with({
-        'context' => '/files/etc/sysconfig/jenkins',})
+        'context' => "#{augeas_context}",})
       }
       it { is_expected.to contain_augeas('jenkins_https_keystore').with({
-        'context' => '/files/etc/sysconfig/jenkins',})
+        'context' => "#{augeas_context}",})
       }
       it { is_expected.to contain_augeas('jenkins_https_keystore_password').with({
-        'context' => '/files/etc/sysconfig/jenkins',})
+        'context' => "#{augeas_context}",})
       }
       it { is_expected.to contain_augeas('jenkins_https_listen_address').with({
-        'context' => '/files/etc/sysconfig/jenkins',})
+        'context' => "#{augeas_context}",})
       }
 
     end

@@ -1,0 +1,4 @@
+---
+
+jenkins::java_package: 'openjdk-8-jre-headless'
+jenkins::service_config_directory: '/etc/default'
