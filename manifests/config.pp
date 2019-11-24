@@ -1,6 +1,6 @@
 class jenkins::config {
 
-  $_context = "/files/${jenkins::service_config_directory}/jenkins"
+  $_context = "/files${jenkins::service_config_directory}/jenkins"
 
   augeas {'jenkins_homedir':
     context => $_context,

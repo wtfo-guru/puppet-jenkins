@@ -31,8 +31,10 @@ Augeas resource type is used to change parameters inside the /etc/sysconfig/jenk
 This module was tested under these platforms
 
 - EL 6 and 7
+- Debian 9,10
+- Ubuntu 18.04
 
-Tested only in X86_64 arch.  
+Tested only in X86_64 arch.
 
 ## Requirements
 
@@ -293,7 +295,7 @@ This module was developed using
 - CentOS 7.3
 - Vagrant 2.0.1 + VirtualBox 5.2.2
   - box: gutocarvalho/centos7x64puppet5
-  
+
 ### Testing
 
 This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, beaker and travis-ci. We hope you use them before submitting your PR.
